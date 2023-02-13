@@ -258,6 +258,45 @@ INSERT INTO estado(id_state, name_state, id_country) VALUES
 (9, 'Florida', 1),
 (10, 'Georgia', 1);
 
+INSERT INTO estado(id_state, name_state, id_country) VALUES
+(11, 'Idaho', 1),
+(12, 'Illinois', 1),
+(13, 'Indiana', 1),
+(14, 'Iowa', 1),
+(15, 'Kansas', 1),
+(16, 'Kentucky', 1),
+(17, 'Louisiana', 1),
+(18, 'Maine', 1),
+(19, 'Maryland', 1),
+(20, 'Massachusetts', 1),
+(21, 'Michigan', 1),
+(22, 'Minnesota', 1),
+(23, 'Mississippi', 1),
+(24, 'Missouri', 1),
+(25, 'Montana', 1),
+(26, 'Nebraska', 1),
+(27, 'Nevada', 1),
+(28, 'New Hampshire', 1),
+(29, 'New Jersey', 1),
+(30, 'New Mexico', 1),
+(31, 'New York', 1),
+(32, 'North Carolina', 1),
+(33, 'North Dakota', 1),
+(34, 'Ohio', 1),
+(35, 'Oklahoma', 1),
+(36, 'Oregon', 1),
+(37, 'Pennsylvania', 1),
+(38, 'Rhode Island', 1),
+(39, 'South Carolina', 1),
+(40, 'South Dakota', 1),
+(41, 'Tennessee', 1),
+(42, 'Texas', 1),
+(43, 'Utah', 1),
+(44, 'Virginia', 1),
+(45, 'Washington', 1),
+(46, 'Wisconsin', 1),
+(47, 'Wyoming', 1);
+
 SELECT * FROM estado;
 
 
@@ -274,6 +313,33 @@ INSERT INTO ciudad(id_city, name_city, id_state) VALUES
 (9, 'Tucson', 2),
 (10, 'Mesa', 2);
 
+INSERT INTO ciudad(id_city, name_city, id_state) VALUES
+(11, 'Sierra Vista', 2),
+(12, 'Glendale', 2),
+(13, 'Tempe', 2),
+(14, 'Bullhead City', 2),
+(15, 'Avondale', 2),
+(16, 'Yuma', 2),
+(17, 'Chandler', 2),
+(18, 'Fayetteville', 3),
+(19, 'Jonesboro', 3),
+(20, 'Little Rock', 3),
+(21, 'Hot Springs', 3),
+(22, 'Texarkana', 3),
+(23, 'Rogers', 3),
+(24, 'Conway', 3),
+(25, 'Pine Bluff', 3),
+(26, 'Springdale', 3),
+(27, 'Los Angeles', 4),
+(28, 'San Francisco', 4),
+(29, 'Roseville', 4),
+(30, 'Pasadena', 4),
+(31, 'San Jose', 4),
+(32, 'Redlands', 4),
+(33, 'Whittier', 4),
+(34, 'Santa Clara', 4),
+(35, 'San Diego', 4);
+
 SELECT * FROM ciudad;
 
 
@@ -289,6 +355,33 @@ INSERT INTO codigo_postal(id_pc, name_pc, id_city) VALUES
 (8, '84084', 8),
 (9, '94109', 9),
 (10, '68025', 10);
+
+INSERT INTO codigo_postal(id_pc, name_pc, id_city) VALUES
+(11, '19140', 11),
+(12, '84057', 12),
+(13, '77095', 13),
+(14, '75080', 14),
+(15, '60540', 15),
+(16, '32935', 16),
+(17, '55122', 17),
+(18, '48185', 18),
+(19, '19901', 19),
+(20, '47150', 20),
+(21, '10024', 21),
+(22, '12180', 22),
+(23, '60610', 23),
+(24, '85234', 24),
+(25, '22153', 25),
+(26, '49201', 26),
+(27, '38109', 27),
+(28, '35601', 28),
+(29, '27707', 29),
+(30, '29203', 30),
+(31, '55901', 31),
+(32, '55407', 32),
+(33, '97206', 33),
+(34, '55106', 34),
+(35, '80013', 35);
 
 SELECT * FROM codigo_postal;
 
@@ -315,6 +408,30 @@ INSERT INTO productos(id_product, name_prod, id_subcateg, unit_price, sku) VALUE
 (9, 'Bush Heritage Pine Collection 5-Shelf Bookcase, Albany Pine Finish', 1, 119.83, 1),
 (10, 'Bush Mission Pointe Library', 1, 102.66, 1);
 
+INSERT INTO productos(id_product, name_prod, id_subcateg, unit_price, sku) VALUES
+(11, 'Bush Saratoga Collection 5-Shelf Bookcase, Hanover Cherry, *Special Order', 1, 28.99, 1),
+(12, 'Bush Somerset Collection Bookcase', 1, 104.78, 1),
+(13, 'Bush Westfield Collection Bookcases, Dark Cherry Finish', 1, 17.39, 1),
+(14, 'Bush Westfield Collection Bookcases, Dark Cherry Finish, Fully Assembled', 1, 30.29, 1),
+(15, 'Bush Westfield Collection Bookcases, Fully Assembled', 1, 68.66, 1),
+(16, 'Bush Westfield Collection Bookcases, Medium Cherry Finish', 1, 28.99, 1),
+(17, 'DMI Eclipse Executive Suite Bookcases', 1, 400.78, 1),
+(18, 'Global Adaptabilites Bookcase, Cherry/Storm Gray Finish', 1, 430.98, 1),
+(19, 'Hon 4-Shelf Metal Bookcases', 1, 30.29, 1),
+(20, 'Hon Metal Bookcases, Black', 1, 21.29, 1);
+
+INSERT INTO productos(id_product, name_prod, id_subcateg, unit_price, sku) VALUES
+(21, 'Hon Metal Bookcases, Gray', 1, 70.98, 1),
+(22, 'Hon Metal Bookcases, Putty', 1, 70.98, 1),
+(23, 'O Sullivan 2-Door Barrister Bookcase in Odessa Pine', 1, 180.98, 1),
+(24, 'O Sullivan 2-Shelf Heavy-Duty Bookcases', 1, 38.86, 1),
+(25, 'O Sullivan 3-Shelf Heavy-Duty Bookcases', 1, 49.41, 1),
+(26, 'O Sullivan 4-Shelf Bookcase in Odessa Pine', 1, 96.78, 1),
+(27, 'O Sullivan 5-Shelf Heavy-Duty Bookcases', 1, 65.55, 1),
+(28, 'O Sullivan Cherrywood Estates Traditional Barrister Bookcase', 1, 96.23, 1),
+(29, 'O Sullivan Cherrywood Estates Traditional Bookcase', 1, 67.98, 1),
+(30, 'O Sullivan Elevations Bookcase, Cherry Finish', 1, 104.78, 1);
+
 SELECT * FROM productos;
 
 
@@ -331,6 +448,28 @@ INSERT INTO  ordenes(id_order, order_date, id_ship, id_cust, id_pc, id_region,id
 (9, '2021-09-04', 3, 8, 8, 2, 3),
 (10, '2021-09-04', 3, 4, 4, 2, 2);
 
+INSERT INTO  ordenes(id_order, order_date, id_ship, id_cust, id_pc, id_region,id_payment) VALUES
+(11, '2021-09-04', 3, 17, 35, 2, 2),
+(12, '2021-05-16', 1, 1, 25, 2, 1),
+(13, '2019-02-14', 4, 9, 19, 2, 2),
+(14, '2019-02-14', 4, 17, 35, 2, 3),
+(15, '2019-02-14', 4, 9, 19, 2, 2),
+(16, '2019-02-14', 4, 6, 19, 2, 1),
+(17, '2019-02-14', 4, 17, 35, 2, 2),
+(18, '2021-09-10', 1, 6, 19, 2, 2),
+(19, '2020-12-27', 1, 17, 35, 2, 3),
+(20, '2020-08-14', 4, 6, 19, 2, 2),
+(21, '2020-08-14', 4, 12, 30, 2, 2),
+(22, '2020-08-14', 4, 12, 30, 2, 1),
+(23, '2018-11-24', 4, 12, 30, 2, 2),
+(24, '2021-10-12', 4, 14, 12, 1, 3),
+(25, '2021-10-12', 4, 14, 12, 1, 2),
+(26, '2021-03-13', 3, 17, 35, 1, 1),
+(27, '2021-03-13', 3, 13, 26, 1, 2),
+(28, '2021-03-13', 3, 13, 26, 1, 2),
+(29, '2021-03-13', 3, 13, 26, 1, 3),
+(30, '2021-03-13', 3, 13, 26, 1, 2);
+
 SELECT * FROM ordenes;
 
 /*tabla 16*/
@@ -341,6 +480,12 @@ INSERT INTO  retornos(id_retorno, day_return, id_order, id_cause, id_cust) VALUE
 (4, '2021-06-07', 6, 4, 3),
 (5, '2021-09-24', 8, 3, 1),
 (6, '2021-09-24', 9, 1, 8);
+
+INSERT INTO  retornos(id_retorno, day_return, id_order, id_cause, id_cust) VALUES
+(7, '2021-09-07', 11, 1, 17),
+(8, '2019-02-16', 14, 1, 17),
+(9, '2019-02-17', 17, 1, 17),
+(10, '2020-12-30', 19, 1, 17);
 
 SELECT * FROM retornos;
 
