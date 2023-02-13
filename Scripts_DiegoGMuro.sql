@@ -513,6 +513,47 @@ INSERT INTO  ordenes_productos(Id_vta_order_prod, id_order, id_product, unit_pri
 (19, 10, 9, 119.83, 1, 6, 7191.00),
 (20, 10, 8, 66.29, 1, 2, 132.60);
 
+INSERT INTO  ordenes_productos(Id_vta_order_prod, id_order, id_product, unit_price, sku, qty, sales) VALUES
+(21, 11, 8, 66.29, 1, 1, 66.29),
+(22, 11, 12, 104.78, 1, 9, 943.06),
+(23, 11, 10, 102.67, 1, 5, 513.33),
+(24, 12, 6, 119.99, 1, 6, 719.94),
+(25, 13, 23, 180.98, 1, 9, 1628.82),
+(26, 13, 14, 30.29, 1, 15, 454.41),
+(27, 13, 9, 119.83, 1, 21, 2516.49),
+(28, 14, 18, 430.98, 1, 14, 6033.72),
+(29, 14, 25, 49.42, 1, 97, 4793.64),
+(30, 15, 26, 96.78, 1, 65, 6290.96),
+(31, 15, 8, 66.29, 1, 23, 1524.76),
+(32, 16, 19, 30.29, 1, 2, 60.59),
+(33, 17, 18, 430.98, 1, 45, 19394.10),
+(34, 17, 19, 30.29, 1, 45, 1363.23),
+(35, 17, 5, 84.99, 1, 90, 7649.24),
+(36, 18, 2, 260.98, 1, 10, 2609.80),
+(37, 19, 18, 430.98, 1, 25, 10774.50),
+(38, 19, 25, 49.42, 1, 32, 1581.41),
+(39, 20, 8, 66.29, 1, 5, 331.47),
+(40, 20, 11, 28.99, 1, 8, 231.92),
+(41, 21, 25, 49.42, 1, 94, 4645.39),
+(42, 22, 9, 119.83, 1, 10, 1198.33),
+(43, 23, 10, 102.67, 1, 15, 1540.00),
+(44, 24, 15, 68.67, 1, 45, 3089.99),
+(45, 24, 9, 119.83, 1, 98, 11743.63),
+(46, 25, 8, 66.29, 1, 5, 331.47),
+(47, 25, 4, 90.29, 1, 6, 541.76),
+(48, 25, 25, 49.42, 1, 9, 444.77),
+(49, 26, 14, 30.29, 1, 7, 212.06),
+(50, 26, 6, 119.99, 1, 8, 959.92),
+(51, 27, 18, 430.98, 1, 191, 82317.18),
+(52, 28, 13, 17.39, 1, 45, 782.73),
+(53, 28, 5, 84.99, 1, 3, 254.97),
+(54, 29, 11, 28.99, 1, 4, 115.96),
+(55, 30, 20, 21.29, 1, 34, 724.00),
+(56, 30, 16, 28.99, 1, 98, 2841.02),
+(57, 30, 25, 49.42, 1, 5, 247.10),
+(58, 30, 18, 430.98, 1, 74, 31892.52);
+
+
 SELECT * FROM ordenes_productos;
 
 
@@ -521,6 +562,7 @@ SELECT * FROM ordenes_productos;
 /*SCRIPT DE CREACION DE VISTAS*/
 
 /*Vista 1*/
+/*Se desea visualizar los pedidos rechazados por estar "mal facturados" */ 
 CREATE VIEW order_rejected AS
 SELECT * FROM retornos WHERE id_cause = 3;
 
@@ -529,6 +571,7 @@ SELECT * FROM retornos;
 
 
 /*Vista 2*/
+/*Se desea visualizar los pedidos con fecha de orden mayor al 2021-10-01  */ 
 CREATE VIEW sales_date AS
 SELECT * FROM ordenes WHERE order_date > '2021-10-01';
 
@@ -537,6 +580,7 @@ SELECT * FROM ordenes;
 
 
 /*Vista 3*/
+/*Se desea visualizar los productos cuyo precio unitario sea mayor a 100usd  */ 
 CREATE VIEW orders_price AS
 SELECT * FROM productos WHERE unit_price > 100;
 
@@ -545,6 +589,7 @@ SELECT * FROM productos;
 
 
 /*Vista 4*/
+/*Se desea visualizar los productos cuyo precio unitario sea mayor a 110usd  */ 
 CREATE VIEW order_by_prod_names AS
 (SELECT id_product, name_prod, id_subcateg, unit_price FROM productos WHERE unit_price > 110);
 
@@ -553,6 +598,7 @@ SELECT * FROM productos;
 
 
 /*Vista 5*/
+/*Se desea visualizar los clientes ordenados alfabeticamente descendente  */ 
 CREATE VIEW order_customer AS
 (SELECT id_cust, day_in, name_cust FROM cliente ORDER BY name_cust DESC);
 
@@ -561,6 +607,7 @@ SELECT * FROM cliente;
 
 
 /*Vista 6*/
+/*Se desea visualizar las causas de retornos en los dias que sucedieron los mismos  */ 
 CREATE VIEW returns_cause AS
 SELECT cr.id_cause,cr.descrip_causeret,r.day_return
 FROM retornos r
@@ -573,6 +620,7 @@ SELECT * FROM retornos;
 
 
 /*Vista 7*/
+/*Se desea visualizar las regiones de las ordenes junto oon el id de vendedor, id de cliente y fecha  */ 
 CREATE VIEW orders_region AS
 SELECT r.id_region,r.name_region,r.id_salesman,o.id_order,o.order_date,o.id_cust
 FROM ordenes o
@@ -585,6 +633,7 @@ SELECT * FROM region;
 
 
 /*Vista 8*/
+/*Se desea visualizar las regiones de las ordenes junto oon el id de vendedor + Nombre y apellido, id de cliente y fecha  */ 
 CREATE VIEW orders_region_salesman AS
 SELECT orr.id_region,orr.name_region,orr.id_order,orr.order_date,orr.id_salesman,orr.id_cust,v.name_salesman,v.lastname_salesman
 FROM orders_region orr
@@ -594,10 +643,11 @@ ON orr.id_salesman=v.id_salesman;
 SELECT * FROM orders_region_salesman;
 SELECT * FROM ordenes;
 SELECT * FROM region;
-SELECT * FROM salesman;
+SELECT * FROM vendedor;
 
 
 /*Vista 9*/
+/*Se desea visualizar las regiones de las ordenes junto con el id de vendedor + Nombre y apellido, id de cliente + Nombre y fecha  */ 
 CREATE VIEW orders_region_salesman_cust AS
 SELECT orrs.id_region,orrs.name_region,orrs.id_order,orrs.order_date,orrs.id_salesman,orrs.name_salesman,orrs.lastname_salesman,orrs.id_cust,c.name_cust
 FROM orders_region_salesman orrs
@@ -607,10 +657,11 @@ ON orrs.id_cust=c.id_cust;
 SELECT * FROM orders_region_salesman_cust;
 SELECT * FROM ordenes;
 SELECT * FROM region;
-SELECT * FROM salesman;
+SELECT * FROM vendedor;
 SELECT * FROM cliente;
 
 /*Vista 10*/
+/*Se desea visualizar los productos que contiene cada orden (id + descripcion) y los USD facturados  */ 
 CREATE VIEW order_prod_name AS
 SELECT op.id_order,p.id_product,p.name_prod,op.unit_price,op.sales
 FROM ordenes_productos op
@@ -623,6 +674,7 @@ SELECT * FROM productos;
 
 
 /*Vista 11*/
+/*Se desea visualizar los productos que contiene cada orden (id + descripcion), el cliente (id + nombre) y los USD facturados  */ 
 CREATE VIEW order_prod_name_cust AS
 SELECT opn.id_order,orsc.id_cust,orsc.name_cust,opn.id_product,opn.name_prod,opn.unit_price,opn.sales
 FROM orders_region_salesman_cust orsc
@@ -634,6 +686,18 @@ SELECT * FROM ordenes_productos;
 SELECT * FROM productos;
 SELECT * FROM cliente;
 
+/*Vista 12*/
+/*Se desea visualizar los RETORNOS con el detalle de los productos que contiene cada orden (id + descripcion), el cliente (id + nombre), las cantidades y los USD facturados  */ 
+CREATE VIEW return_order_prod_name_cust AS
+SELECT ret.id_retorno,ret.day_return,opnc.id_order,opnc.id_cust,opnc.name_cust,opnc.id_product,opnc.name_prod,opnc.sales
+FROM retornos ret 
+INNER JOIN order_prod_name_cust opnc
+ON ret.id_order=opnc.id_order;
+
+SELECT * FROM return_order_prod_name_cust;
+SELECT * FROM retornos;
+SELECT * FROM productos;
+SELECT * FROM cliente;
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*SCRIPT DE CREACION DE FUNCIONES*/
